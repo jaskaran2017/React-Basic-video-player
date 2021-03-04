@@ -1,3 +1,8 @@
 .App {
   text-align: center;
 }
+.myList {
+  background-color: rgb(5, 51, 121);
+  color: rgb(161, 9, 9);
+  font-weight: bold;
+}

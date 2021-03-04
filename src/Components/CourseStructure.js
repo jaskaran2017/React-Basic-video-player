@@ -21,6 +21,7 @@ function CourseStructure(props) {
 
   const [vid, uid] = useState(courses[courseName][0].vid);
   const [title, utit] = useState(courses[courseName][0].title);
+  const [counter, setCounter] = useState(0);
 
   const renderVideo = () => {
     return (
@@ -40,24 +41,28 @@ function CourseStructure(props) {
     );
   };
   return (
-    <div className="main">
+    <div>
       {renderVideo()}
-      <div className="collection">
-        {courses[courseName].map((items) => {
+      <ul className="collection">
+        {courses[courseName].map((items, index) => {
           return (
-            <a
-              href="#!"
-              className="collection-item"
+            <li
+              key={items.vid}
+              className={
+                //
+                counter === index ? "collection-item myList" : "collection-item"
+              }
               onClick={() => {
                 uid(items.vid);
                 utit(items.title);
+                setCounter(index);
               }}
             >
               {items.title}
-            </a>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 }
